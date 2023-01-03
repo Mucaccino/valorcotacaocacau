@@ -12,8 +12,10 @@ const puppeteer = require('puppeteer');
     // find all html elements
     return document.querySelector('*').outerHTML;
   });
-  // log entire html
-  console.log(data);
+  if (process.env.npm_config_html) {
+    // log entire html
+    console.log(data);
+  }
 
   // replace all enter keywords
   var simpleData = data.replace(/\n/g, "");
