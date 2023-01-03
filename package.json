@@ -1,0 +1,17 @@
+{
+  "name": "valorcotacaocacau",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Murillo L Do Carmo (https://murilloldocarmo.com)",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^14.4.0"
+  },
+  "bin": {
+    "hello": "./bin/index.js"
+  }
+}
