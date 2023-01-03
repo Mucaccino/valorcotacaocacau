@@ -27,7 +27,7 @@ const puppeteer = require('puppeteer');
   console.log(`Cacau Bahia/@: R$${match[3]}`);
 
   // print a screenshot
-  await page.screenshot({ path: `cotacao.png`, fullPage: true });
+  await page.screenshot({ path: `html.png`, fullPage: true });
   // close browser
   await browser.close();
 })();
