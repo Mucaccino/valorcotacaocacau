@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
 
 (async () => {
   // require browser
@@ -23,11 +24,19 @@ const puppeteer = require('puppeteer');
   var myRegexp = new RegExp(`<span>BA</span></li>(.*?)<li class="box box-4 left b-right-1-dashed">(.*?)<span>(.*?)</span></li>`, 'gm');
   // execute regexp
   var match = myRegexp.exec(simpleData);
-  // log final data
-  console.log(`Cacau Bahia/@: R$${match[3]}`);
 
+  // removel older screenshot
+  fs.rmSync("html.png", {
+    force: true,
+  });
   // print a screenshot
-  await page.screenshot({ path: `html.png`, fullPage: true });
+  if (process.env.npm_config_print) {
+    // log entire html
+    await page.screenshot({ path: `html.png`, fullPage: true });
+  }
   // close browser
   await browser.close();
+
+  // show final info
+  console.log(`${match[3]}`);
 })();
